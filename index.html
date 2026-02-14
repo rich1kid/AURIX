@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurix: AI Voice Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .loading-dots {
+        animation: dots-light 1.4s infinite;
+        animation-timing-function: steps(1, end);
+      }
+      .dark .loading-dots {
+        animation-name: dots-dark;
+      }
+
+      @keyframes dots-light {
+          0% {
+              color: rgba(107, 114, 128, 0.4);
+              text-shadow: .25em 0 0 rgba(107, 114, 128, 0.4), .5em 0 0 rgba(107, 114, 128, 0.4);
+          }
+          20% {
+              color: #374151;
+              text-shadow: .25em 0 0 rgba(107, 114, 128, 0.4), .5em 0 0 rgba(107, 114, 128, 0.4);
+          }
+          40% { text-shadow: .25em 0 0 #374151, .5em 0 0 rgba(107, 114, 128, 0.4); }
+          60% { text-shadow: .25em 0 0 #374151, .5em 0 0 #374151; }
+      }
+
+      @keyframes dots-dark {
+          0% {
+              color: rgba(255, 255, 255, 0.2);
+              text-shadow: .25em 0 0 rgba(255, 255, 255, 0.2), .5em 0 0 rgba(255, 255, 255, 0.2);
+          }
+          20% {
+              color: white;
+              text-shadow: .25em 0 0 rgba(255, 255, 255, 0.2), .5em 0 0 rgba(255, 255, 255, 0.2);
+          }
+          40% { text-shadow: .25em 0 0 white, .5em 0 0 rgba(255, 255, 255, 0.2); }
+          60% { text-shadow: .25em 0 0 white, .5em 0 0 white; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<script>
+    // Immediately set theme to prevent FOUC
+    (function() {
+        const theme = localStorage.getItem('aurix-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

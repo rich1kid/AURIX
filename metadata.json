@@ -1,0 +1,9 @@
+{
+  "name": "Aurix: AI Voice Assistant",
+  "description": "A next-generation, voice-driven AI personal assistant. Engage in natural conversations, get answers, and experience the future of voice interaction, powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera",
+    "geolocation"
+  ]
+}
