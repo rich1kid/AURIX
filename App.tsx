@@ -17,6 +17,7 @@ import AttachmentIcon from './components/AttachmentIcon';
 import Header from './components/Header';
 import Modal from './components/Modal';
 import Logo from './components/Logo';
+import { Analytics } from '@vercel/analytics/react';
 
 type AppState = 'splash' | 'welcome' | 'chat';
 type Status = 'idle' | 'listening' | 'processing';
@@ -357,6 +358,7 @@ const App: React.FC = () => {
                     <button onClick={() => setMessages([])} className="w-full mt-4 text-red-500 text-sm font-bold p-2 hover:bg-red-50 rounded">Clear History</button>
                 )}
             </Modal>
+            <Analytics />
         </div>
     );
 };
